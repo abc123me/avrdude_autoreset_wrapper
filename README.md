@@ -48,6 +48,9 @@ are then passed to avrdude to start the regular flashing process.
 The wrapper needs at least the programmer id (hast to be avr109), the com port
 and the device id (partno) to work correctly.
 
+In case another programmer id is passed the wrapper will behave transparent doing 
+nothing but passing the arguments to avrdude.
+
 Modifying Eclipse C++ IDE for Arduino 3.0
 -----------------------------------------
 

@@ -19,7 +19,7 @@ Add device identifiers of remaining usb arduinos
 Description
 -----------
 
-This wrapper enables avrdude to perform the necessary steps to bring the target device into bootloader mode. The autoreset feature is triggered by programmer id "avr109" enabling it for arduino types leonardo and lilypad usb. Other arduino devices like micro or yun are to be implemented yet. This should be easy as two lines has to be added per devices at marked locations in .bat file.
+This wrapper enables avrdude to perform the necessary steps to bring the target device into bootloader mode. The autoreset feature is triggered by programmer id "avr109" enabling it for arduino types leonardo and lilypad usb. Other arduino devices using the same protocol are to be implemented yet. This should be easy as two lines has to be added per devices at marked locations in .bat file.
 
 This wrapper is designed to work with Eclipse C++ IDE for Arduino 3.0 to remove the "butterfly_recv(): programmer is not responding" bug that occurs when a usb based arduino device using the avr109 protocol is to be programmed. Compiling + flashing on single click to Button "Launch in 'Run' mode" shall then be possible.
 

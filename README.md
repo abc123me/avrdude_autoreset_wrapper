@@ -11,7 +11,7 @@ https://github.com/p1ne/arduino-leonardo-uploader
 In arduino-leonardo-uploader user p1ne realized the brilliant idea to use WMIC to allocate the com port of a connected arduino device and its bootloader. I just added some generalization to the script in order to make it usuable with arduino devices other than leonardo. Consider the following license to the parts added from me:
 
 THE BEER-WARE LICENSE (Revision 42):<br/>
-<javanaut2018@gmail.com> wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return
+<javanaut2018@gmail.com> wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
 
 Todo:<br/>
 Add device identifiers of remaining usb arduinos

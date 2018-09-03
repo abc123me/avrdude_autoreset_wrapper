@@ -33,6 +33,7 @@ for /f "tokens=1* delims==" %%I in ('wmic path win32_pnpentity get caption  /for
   findstr 
     /C:"Arduino Leonardo (" 
     /C:"Arduino LilyPad USB ("
+    /C:"Arduino Yun ("
 ') do (
 
   call :resetPort "%%~J"
@@ -43,6 +44,7 @@ for /f "tokens=1* delims==" %%I in ('wmic path win32_pnpentity get caption  /for
   findstr 
     /C:"Arduino Leonardo bootloader" 
     /C:"Arduino LilyPad USB bootloader"
+    /C:"Arduino Yun bootloader"
 ') do (
 
     call :setPort "%%~J"

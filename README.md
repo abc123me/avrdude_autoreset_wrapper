@@ -2,9 +2,9 @@
 Wrapper for avrdude performing automatic reset to bootloader
 in arduino usb devices like leonardo and lilypad usb
 
-Version: 1.0
-Date: 3.9.2018
-Author: Javanaut
+Version: 1.0<br/>
+Date: 3.9.2018<br/>
+Author: Javanaut<br/>
 
 Based on arduino-leonardo-uploader from p1ne found here:
 https://github.com/p1ne/arduino-leonardo-uploader
@@ -15,10 +15,10 @@ I just added some generalization to the script in order to make it usuable
 with arduino devices other than leonardo. Consider the following license to
 the parts added from me:
 
-THE BEER-WARE LICENSE (Revision 42):
-<javanaut2018@gmail.com> wrote this file. As long as you retain this notice you
-can do whatever you want with this stuff. If we meet some day, and you think
-this stuff is worth it, you can buy me a beer in return
+THE BEER-WARE LICENSE (Revision 42):<br/>
+<javanaut2018@gmail.com> wrote this file. As long as you retain this notice you<br/>
+can do whatever you want with this stuff. If we meet some day, and you think<br/>
+this stuff is worth it, you can buy me a beer in return<br/>
 
 Todo:
 Add device identifiers of remaining usb arduinos

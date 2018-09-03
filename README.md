@@ -1,17 +1,72 @@
-# arduino-leonardo-uploader
-Simple wrapper for avrdude to allow firmware upload to Arduino Leonardo from command line
+# avrdude-autoreset-wrapper
 
-That's very common problem referenced on Arduino forums and Stackexchange - when you try to upload 
-firmware to Arduino Leonardo and clones with avrdude, you get programmer timeout error message.
+Wrapper for avrdude performing automatic reset to bootloader
+in arduino usb devices like leonardo and lilypad usb#
 
-Reason for it is very simple - Arduino Leonardo should be reset to provide another serial port for flashing
+Version: 1.0
+Date: 3.9.2018
+Author: Javanaut
 
-This repository contains simple Windows-based bat file that identifies your Arduino Leonardo COM port through WMIC, performs COM port reset, then identifies bootloader COM port and invokes avrdude to upload firmware from firmware.hex file
+Based on arduino-leonardo-uploader from p1ne found here:
+https://github.com/p1ne/arduino-leonardo-uploader
 
-I use SparkFun Arduino Pro Micro, so it's name is hardcoded in upload.bat file on line #4. Change to your board name (can be obtained from Windows Device Manager)
+In arduino-leonardo-uploader user p1ne realized the brilliant idea to use WMIC
+to allocate the com port of a connected arduino device and its bootloader.
+I just added some generalization to the script in order to make it usuable
+with arduino devices other than leonardo. Consider the following license to
+the parts added from me:
 
-firmware.hex file is empty here, please put yours. 
+THE BEER-WARE LICENSE (Revision 42):
+<javanaut2018@gmail.com> wrote this file. As long as you retain this notice you
+can do whatever you want with this stuff. If we meet some day, and you think
+this stuff is worth it, you can buy me a beer in return Poul-Henning Kamp
 
-avrdude binary and config is taken from Arduino IDE 1.8.3
+Todo:
+Add device identifiers of remaining usb arduinos
 
-OS X and Linux version coming soon, idea is pretty much the same - to use stty to control serial port.
+Description
+-----------
+
+This wrapper enables avrdude to perform the necessary steps to bring the target
+device into bootloader mode. The autoreset feature is triggered by programmer
+id "avr109" enabling it for arduino types leonardo and lilypad usb. Other arduino
+devices like micro or yun are to be implemented yet. This should be easy as two
+lines has to be added per devices at marked locations in .bat file.
+
+This wrapper is designed to work with Eclipse C++ IDE for Arduino 3.0 to remove the
+"butterfly_recv(): programmer is not responding" bug that occurs when a usb based
+arduino device using the avr109 protocol is to be programmed. Compiling + flashing on
+single click to Button "Launch in 'Run' mode" shall then be possible.
+
+Mode of operation
+-----------------
+
+Arguments passed to batch file are parsed and stored. WMIC is then used to
+check if a arduino avr109 device is present, reset the device and finding the 
+bootloader port that appears after reset. The new port and stored arguments
+are then passed to avrdude to start the regular flashing process.
+
+The wrapper needs at least the programmer id (hast to be avr109), the com port
+and the device id (partno) to work correctly.
+
+Modifying Eclipse C++ IDE for Arduino 3.0
+-----------------------------------------
+
+Locate the arduino base directory, per default this is:
+
+C:\Users\<Username>\.arduinocdt
+
+In this directory perform the following steps:
+
+1. Place .bat file here:
+
+\packages\arduino\tools\avrdude\<latest version>\bin
+
+2. Modify platform.txt located here:
+
+\packages\arduino\hardware\avr\<latest version>\platform.txt
+
+#tools.avrdude.cmd.path={path}/bin/avrdude
+tools.avrdude.cmd.path={path}/bin/avrdude_wrapper.bat
+
+3. Restart Eclipse

@@ -1,7 +1,6 @@
 # avrdude-autoreset-wrapper
-
 Wrapper for avrdude performing automatic reset to bootloader
-in arduino usb devices like leonardo and lilypad usb#
+in arduino usb devices like leonardo and lilypad usb
 
 Version: 1.0
 Date: 3.9.2018

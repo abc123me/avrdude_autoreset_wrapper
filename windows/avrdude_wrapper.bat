@@ -115,6 +115,6 @@ goto :eof
 
 :flash
 
-  echo avrdude -c%programmer% -P%port%%additionalParamsString%
+  avrdude -c%programmer% -P%port%%additionalParamsString%
 
 goto :eof

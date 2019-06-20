@@ -53,3 +53,10 @@ In this directory perform the following steps:
 tools.avrdude.cmd.path={path}/bin/avrdude_wrapper.bat
 
 3. Restart Eclipse
+
+Linux installation notes
+--------------------------
+
+Make sure to include the `avrdude_wrapper_bash.sh` file in the same directory as the `avrdude_wrapper.sh` because eclipse ignores
+the interpreter and runs it as a shell script despite the `#!/bin/bash` and specify the location of `avrdude_wrapper_bash.sh` rather then `avrdude_wrapper.sh` inside of `\packages\arduino\hardware\avr\<latest version>\platform.txt`
+

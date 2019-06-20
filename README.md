@@ -5,8 +5,8 @@ Version: 1.0<br/>
 Date: 3.9.2018<br/>
 Author: Javanaut<br/>
 
-Based on arduino-leonardo-uploader from p1ne found here:<br/>
-https://github.com/p1ne/arduino-leonardo-uploader
+Based on arduino-leonardo-uploader from gotzl found here:<br/>
+https://github.com/gotzl/avrdude_autoreset_wrapper
 
 In arduino-leonardo-uploader user p1ne realized the brilliant idea to use WMIC to allocate the com port of a connected arduino device and its bootloader. I just added some generalization to the script in order to make it usuable with arduino devices other than leonardo. Consider the following license to the parts added from me:
 
